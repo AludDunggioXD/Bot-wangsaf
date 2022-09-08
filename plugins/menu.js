@@ -35,24 +35,21 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-Hai, %ucapan %name! 👋
+╭・⌬・ *Hai, %ucapan %name!* 👋
   
-*Waktu:* 
-%wib WIB
-%wita WITA
-%wit WIT
-*Hari:* %week
-*Tanggal:* %date
-*Uptime:* %uptime (%muptime)
+*✰・ Hari:* %week
+*✰・ Tanggal:* %date
+*✰・ Uptime:* %uptime (%muptime)
+*✰・ Limit:* %limit
+*✰・ Level:* %level
+*✰・ XP:* %exp
 
-*Limit:* %limit
-*Level:* %level
-*XP:* %exp
+╰・⌬・ *Tekan Read More untuk lebih banyak!*
 %readmore`.trimStart(),
   header: ' *%category*',
   body: ' • %cmd %islimit %isPremium',
   footer: '\n',
-  after: `*Made by ♡*
+  after: `*Made by Riifuu*
 *%npmname* | %version
 ${'```%npmdesc```'}
 `,
@@ -157,7 +154,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendButton(m.chat, text.trim(), 'Made with ♡ by Aine', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)
+    conn.sendButton(m.chat, text.trim(), 'Made by Riifuu', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)
     /*conn.sendHydrated(m.chat, text.trim(), 'Ⓟ premium | Ⓛ limit', null, 'https://aiinne.github.io/', 'Website', '', '', [
       ['Donate', '/donasi'],
       ['Sewa Bot', '/sewa'],
